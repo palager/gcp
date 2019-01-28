@@ -68,6 +68,8 @@ func main() {
 	where := flag.String("where", filepath.Join(os.Getenv("HOME"), "upspin", "deploy"), "`directory` to store private configuration files")
 	domain := flag.String("domain", "", "domain `name` for this Upspin installation")
 	project := flag.String("project", "", "GCP `project` name")
+	// see StorageClass in: https://godoc.org/google.golang.org/api/storage/v1#Bucket
+	storageClass := flag.String("storage_class", "", "Cloud Storage 'StorageClass' like: MULTI_REGIONAL, REGIONAL, STANDARD, NEARLINE, ...")
 
 	s.ParseFlags(flag.CommandLine, os.Args[1:], help,
 		"setupstorage-gcp -domain=<name> -project=<gcp_project_name> <bucket_name>")
@@ -85,7 +87,7 @@ func main() {
 
 	email, privateKeyData := s.createServiceAccount(*project)
 
-	s.createBucket(*project, email, bucket)
+	s.createBucket(*project, email, bucket, *storageClass)
 
 	cfg.StoreConfig = []string{
 		"backend=GCS",
@@ -148,7 +150,7 @@ func (s *state) createServiceAccount(project string) (email, privateKeyData stri
 	return acct.Email, key.PrivateKeyData
 }
 
-func (s *state) createBucket(project, email, bucket string) {
+func (s *state) createBucket(project, email, bucket string, storageClass string) {
 	client, err := google.DefaultClient(context.Background(), storage.DevstorageFullControlScope)
 	if err != nil {
 		// TODO: ask the user to run 'gcloud auth application-default login'
@@ -166,7 +168,8 @@ func (s *state) createBucket(project, email, bucket string) {
 			Email:  email,
 			Role:   "OWNER",
 		}},
-		Name: bucket,
+		Name:         bucket,
+		StorageClass: storageClass,
 		// TODO(adg): flag for location
 	}).Do()
 	if isExists(err) {
