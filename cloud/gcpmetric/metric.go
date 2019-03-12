@@ -4,7 +4,7 @@
 
 // Package gcpmetric implements a metric.Saver that records metrics with
 // Google's Cloud Trace API.
-package gcpmetric // import "gcp.upspin.io/cloud/gcpmetric"
+package gcpmetric // import "github.com/palager/gcp/cloud/gcpmetric"
 
 import (
 	"fmt"
@@ -15,10 +15,10 @@ import (
 	"golang.org/x/oauth2/google"
 	trace "google.golang.org/api/cloudtrace/v1"
 
-	"upspin.io/errors"
-	"upspin.io/log"
-	"upspin.io/metric"
-	"upspin.io/serverutil"
+	"github.com/palager/upspin/errors"
+	"github.com/palager/upspin/log"
+	"github.com/palager/upspin/metric"
+	"github.com/palager/upspin/serverutil"
 )
 
 // traceSaver is an interface to cloudtrace API. It is used mostly for testing.

@@ -5,28 +5,28 @@
 // Dirserver is a wrapper for a directory implementation that presents it as an
 // HTTP interface that stores its data in a GCS implementation
 // of the Store service.
-package main // import "gcp.upspin.io/cmd/dirserver-gcp"
+package main // import "github.com/palager/gcp/cmd/dirserver-gcp"
 
 import (
 	"flag"
 
-	cloudLog "gcp.upspin.io/cloud/log"
-	"upspin.io/log"
-	"upspin.io/metric"
-	"upspin.io/serverutil/dirserver"
+	cloudLog "github.com/palager/gcp/cloud/log"
+	"github.com/palager/upspin/log"
+	"github.com/palager/upspin/metric"
+	"github.com/palager/upspin/serverutil/dirserver"
 
-	"gcp.upspin.io/cloud/gcpmetric"
-	"gcp.upspin.io/cloud/https"
+	"github.com/palager/gcp/cloud/gcpmetric"
+	"github.com/palager/gcp/cloud/https"
 
 	// TODO: Which of these are actually needed?
 
 	// Load useful packers
-	_ "upspin.io/pack/ee"
-	_ "upspin.io/pack/eeintegrity"
-	_ "upspin.io/pack/plain"
+	_ "github.com/palager/upspin/pack/ee"
+	_ "github.com/palager/upspin/pack/eeintegrity"
+	_ "github.com/palager/upspin/pack/plain"
 
 	// Load required transports
-	_ "upspin.io/transports"
+	_ "github.com/palager/upspin/transports"
 )
 
 const (

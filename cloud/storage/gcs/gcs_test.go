@@ -11,9 +11,9 @@ import (
 	"testing"
 	"time"
 
-	"upspin.io/cloud/storage"
-	"upspin.io/log"
-	"upspin.io/upspin"
+	"github.com/palager/upspin/cloud/storage"
+	"github.com/palager/upspin/log"
+	"github.com/palager/upspin/upspin"
 )
 
 const defaultTestBucketName = "upspin-test-scratch"

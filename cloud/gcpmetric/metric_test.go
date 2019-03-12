@@ -9,7 +9,7 @@ import (
 	"reflect"
 	"testing"
 
-	"upspin.io/metric"
+	"github.com/palager/upspin/metric"
 
 	trace "google.golang.org/api/cloudtrace/v1"
 )

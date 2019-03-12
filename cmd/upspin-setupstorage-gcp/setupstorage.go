@@ -5,7 +5,7 @@
 // The upspin-setupstorage-gcp command is an external upspin subcommand that
 // executes the second step in establishing an upspinserver for GCP.
 // Run upspin setupstorage-gcp -help for more information.
-package main // import "gcp.upspin.io/cmd/upspin-setupstorage-gcp"
+package main // import "github.com/palager/gcp/cmd/upspin-setupstorage-gcp"
 
 import (
 	"context"
@@ -20,7 +20,7 @@ import (
 	iam "google.golang.org/api/iam/v1"
 	storage "google.golang.org/api/storage/v1"
 
-	"upspin.io/subcmd"
+	"github.com/palager/upspin/subcmd"
 )
 
 type state struct {

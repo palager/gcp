@@ -4,15 +4,15 @@
 
 // Package https provides a helper function to set up an HTTPS server derived
 // from the current environment.
-package https // import "gcp.upspin.io/cloud/https"
+package https // import "github.com/palager/gcp/cloud/https"
 
 import (
 	"log"
 
-	"gcp.upspin.io/cloud/autocert"
+	"github.com/palager/gcp/cloud/autocert"
 
 	"cloud.google.com/go/compute/metadata"
-	"upspin.io/cloud/https"
+	"github.com/palager/upspin/cloud/https"
 )
 
 // ListenAndServe serves the http.DefaultServeMux by HTTPS (and HTTP,

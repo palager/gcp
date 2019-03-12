@@ -4,7 +4,7 @@
 
 // Command upspin-deploy-gcp creates and deploys an Upspin cluster
 // on the Google Cloud Platform.
-package main // import "gcp.upspin.io/cmd/upspin-deploy-gcp"
+package main // import "github.com/palager/gcp/cmd/upspin-deploy-gcp"
 
 // TODO(adg): comprehensive help/setup text
 // TODO(adg): delete load balancers
@@ -29,7 +29,7 @@ import (
 	"strings"
 	"time"
 
-	"upspin.io/config"
+	"github.com/palager/upspin/config"
 
 	"cloud.google.com/go/storage"
 	"golang.org/x/oauth2/google"
@@ -227,7 +227,7 @@ func (c *Config) servers() (ss []string) {
 	return
 }
 
-const defaultKeyServer = "key.upspin.io:443"
+const defaultKeyServer = "key.github.com/palager/upspin:443"
 
 func (c *Config) isUpspinIO() bool {
 	// The upspin-prod and upspin-test projects were created
@@ -504,7 +504,7 @@ func (c *Config) buildServer(server string) error {
 	}
 
 	// Collect source code for server and its dependencies.
-	pkgPath := "gcp.upspin.io/cmd/" + server + "-gcp"
+	pkgPath := "github.com/palager/gcp/cmd/" + server + "-gcp"
 	if err := copySource(dir, pkgPath); err != nil {
 		return err
 	}
@@ -563,34 +563,34 @@ func (c *Config) buildBaseImage() error {
 
 func (c *Config) dirServerUserName() string {
 	if c.isUpspinIO() {
-		return "upspin-dir@upspin.io"
+		return "upspin-dir@github.com/palager/upspin"
 	}
 	return "upspin-dir@" + c.Domain
 }
 
 func (c *Config) storeServerUserName() string {
 	if c.isUpspinIO() {
-		return "upspin-store@upspin.io"
+		return "upspin-store@github.com/palager/upspin"
 	}
 	return "upspin-store@" + c.Domain
 }
 
 func (c *Config) keyServerUserName() string {
 	if c.isUpspinIO() {
-		return "upspin-key@upspin.io"
+		return "upspin-key@github.com/palager/upspin"
 	}
 	return "upspin-key@" + c.Domain
 }
 
 func (c *Config) frontendUserName() string {
 	if c.isUpspinIO() {
-		return "upspin-frontend@upspin.io"
+		return "upspin-frontend@github.com/palager/upspin"
 	}
 	return "upspin-frontend@" + c.Domain
 }
 
 func (c *Config) hostServerUserName() string {
-	return "host@upspin.io"
+	return "host@github.com/palager/upspin"
 }
 
 func writeConfig(dir string, lines ...string) error {
@@ -666,16 +666,16 @@ func copySource(dir, pkgPath string) error {
 		return err
 	}
 
-	if pkgPath == "gcp.upspin.io/cmd/frontend-gcp" {
+	if pkgPath == "github.com/palager/gcp/cmd/frontend-gcp" {
 		// Copy frontend dependencies not listed by `go list`.
 		gopath := build.Default.GOPATH
-		root := filepath.Join(gopath, "src/upspin.io", "doc")
+		root := filepath.Join(gopath, "src/github.com/palager/upspin", "doc")
 		err := filepath.Walk(root, func(dir string, fi os.FileInfo, _ error) error {
 			if !fi.IsDir() {
 				return nil
 			}
 			tail := strings.TrimPrefix(dir, root)
-			pkg := filepath.Join("upspin.io", "doc", tail)
+			pkg := filepath.Join("github.com/palager/upspin", "doc", tail)
 			out = append(out, fmt.Sprintf("%s %s\n", pkg, dir)...)
 			return nil
 		})
@@ -1212,7 +1212,7 @@ func cpDir(dst, src string) error {
 }
 
 func repoPath(suffix string) string {
-	return filepath.Join(build.Default.GOPATH, "src/gcp.upspin.io", suffix)
+	return filepath.Join(build.Default.GOPATH, "src/github.com/palager/gcp", suffix)
 }
 
 func buildServerImage(project string) error {

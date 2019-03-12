@@ -4,21 +4,21 @@
 
 // Storeserver-gcp is a wrapper for a store implementation that presents it as an
 // HTTP interface to Google Cloud Storage.
-package main // import "gcp.upspin.io/cmd/storeserver-gcp"
+package main // import "github.com/palager/gcp/cmd/storeserver-gcp"
 
 import (
 	"flag"
 
-	cloudLog "gcp.upspin.io/cloud/log"
-	"upspin.io/log"
-	"upspin.io/metric"
-	"upspin.io/serverutil/storeserver"
+	cloudLog "github.com/palager/gcp/cloud/log"
+	"github.com/palager/upspin/log"
+	"github.com/palager/upspin/metric"
+	"github.com/palager/upspin/serverutil/storeserver"
 
-	"gcp.upspin.io/cloud/gcpmetric"
-	"gcp.upspin.io/cloud/https"
+	"github.com/palager/gcp/cloud/gcpmetric"
+	"github.com/palager/gcp/cloud/https"
 
 	// Storage on GCS.
-	_ "gcp.upspin.io/cloud/storage/gcs"
+	_ "github.com/palager/gcp/cloud/storage/gcs"
 )
 
 const (

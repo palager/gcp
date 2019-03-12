@@ -19,7 +19,7 @@ ignored = ["golang.org/x/text/collate"]
 
 [[constraint]]
   branch = "master"
-  name = "upspin.io"
+  name = "github.com/palager/upspin"
 
 [prune]
   non-go = true

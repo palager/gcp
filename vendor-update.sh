@@ -5,6 +5,6 @@
 
 # The dep command can be obtained with "go get github.com/golang/dep/cmd/dep".
 
-dep ensure -update upspin.io
+dep ensure -update github.com/palager/upspin
 git add vendor Gopkg.lock
 git gofmt

@@ -6,15 +6,15 @@
 // stand-alone machines. It provides the production implementations of the
 // dir and store servers (dir/server and store/server) with support for storage
 // in Google Cloud.
-package main // import "gcp.upspin.io/cmd/upspinserver-gcp"
+package main // import "github.com/palager/gcp/cmd/upspinserver-gcp"
 
 import (
-	"gcp.upspin.io/cloud/https"
+	"github.com/palager/gcp/cloud/https"
 
-	"upspin.io/serverutil/upspinserver"
+	"github.com/palager/upspin/serverutil/upspinserver"
 
 	// Storage on GCS.
-	_ "gcp.upspin.io/cloud/storage/gcs"
+	_ "github.com/palager/gcp/cloud/storage/gcs"
 )
 
 func main() {

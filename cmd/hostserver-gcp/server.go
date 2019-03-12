@@ -10,16 +10,16 @@ import (
 
 	dns "google.golang.org/api/dns/v1"
 
-	"upspin.io/access"
-	"upspin.io/cache"
-	"upspin.io/errors"
-	"upspin.io/pack"
-	"upspin.io/path"
-	"upspin.io/upspin"
-	"upspin.io/valid"
+	"github.com/palager/upspin/access"
+	"github.com/palager/upspin/cache"
+	"github.com/palager/upspin/errors"
+	"github.com/palager/upspin/pack"
+	"github.com/palager/upspin/path"
+	"github.com/palager/upspin/upspin"
+	"github.com/palager/upspin/valid"
 
-	_ "upspin.io/pack/ee"
-	_ "upspin.io/transports"
+	_ "github.com/palager/upspin/pack/ee"
+	_ "github.com/palager/upspin/transports"
 )
 
 // state holds the state for a combined directory and store server that serves

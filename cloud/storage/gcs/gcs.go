@@ -3,7 +3,7 @@
 // license that can be found in the LICENSE file.
 
 // Package gcs implements a storage backend that saves data to Google Cloud Storage.
-package gcs // import "gcp.upspin.io/cloud/storage/gcs"
+package gcs // import "github.com/palager/gcp/cloud/storage/gcs"
 
 import (
 	"bytes"
@@ -19,10 +19,10 @@ import (
 	"google.golang.org/api/googleapi"
 	gcsBE "google.golang.org/api/storage/v1"
 
-	"upspin.io/cloud/storage"
-	"upspin.io/errors"
-	"upspin.io/log"
-	"upspin.io/upspin"
+	"github.com/palager/upspin/cloud/storage"
+	"github.com/palager/upspin/errors"
+	"github.com/palager/upspin/log"
+	"github.com/palager/upspin/upspin"
 )
 
 const (

@@ -4,11 +4,11 @@
 
 // Frontend-gcp provides a web server that serves documentation and meta
 // tags to instruct "go get" where to find the upspin source repository.
-package main // import "gcp.upspin.io/cmd/frontend-gcp"
+package main // import "github.com/palager/gcp/cmd/frontend-gcp"
 
 import (
-	"gcp.upspin.io/cloud/https"
-	"upspin.io/serverutil/frontend"
+	"github.com/palager/gcp/cloud/https"
+	"github.com/palager/upspin/serverutil/frontend"
 )
 
 func main() {

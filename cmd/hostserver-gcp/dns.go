@@ -16,8 +16,8 @@ import (
 	dns "google.golang.org/api/dns/v1"
 	"google.golang.org/api/googleapi"
 
-	"upspin.io/errors"
-	"upspin.io/upspin"
+	"github.com/palager/upspin/errors"
+	"github.com/palager/upspin/upspin"
 )
 
 // TODO(adg): make this configurable?

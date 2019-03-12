@@ -2,14 +2,14 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Package log provides an implemention of upspin.io/log.ExternalLogger that
+// Package log provides an implemention of github.com/palager/upspin/log.ExternalLogger that
 // sends logs to the Google Cloud Logging service.
-package log // import "gcp.upspin.io/cloud/log"
+package log // import "github.com/palager/gcp/cloud/log"
 
 import (
 	"context"
 
-	"upspin.io/log"
+	"github.com/palager/upspin/log"
 
 	"cloud.google.com/go/logging"
 	"google.golang.org/api/option"

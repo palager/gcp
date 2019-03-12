@@ -7,9 +7,9 @@
 // upspin.services. Each Upspin user can set the IP address of one sub-domain,
 // the name of which is a hash of their user name.
 //
-// Assuming the server is running as host@upspin.io, here's how the user
+// Assuming the server is running as host@github.com/palager/upspin, here's how the user
 // user@example.com would configure their sub-domain:
-//   $ upspin mkdir host@upspin.io/user@example.com/127.0.0.1
+//   $ upspin mkdir host@github.com/palager/upspin/user@example.com/127.0.0.1
 // If that command succeeds, their host name was created or updated.
 // (This can be any command that performs a DirServer.Put to that path; the put
 // command would work, but mkdir is the simpliest choice in this case.)
@@ -20,19 +20,19 @@
 //   127.0.0.1
 //   b4c9a289323b21a01c3e940f150eb9b8.upspin.services
 //
-package main // import "gcp.upspin.io/cmd/hostserver-gcp"
+package main // import "github.com/palager/gcp/cmd/hostserver-gcp"
 
 import (
 	"log"
 	"net/http"
 
-	"gcp.upspin.io/cloud/https"
+	"github.com/palager/gcp/cloud/https"
 
-	"upspin.io/config"
-	"upspin.io/flags"
-	"upspin.io/rpc/dirserver"
-	"upspin.io/rpc/storeserver"
-	"upspin.io/upspin"
+	"github.com/palager/upspin/config"
+	"github.com/palager/upspin/flags"
+	"github.com/palager/upspin/rpc/dirserver"
+	"github.com/palager/upspin/rpc/storeserver"
+	"github.com/palager/upspin/upspin"
 )
 
 func main() {

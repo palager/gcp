@@ -4,14 +4,14 @@
 
 // Package autocert provides an autocert.Cache implementation that stores
 // the certificate cache in a Google Cloud Storage bucket.
-package autocert // import "gcp.upspin.io/cloud/autocert"
+package autocert // import "github.com/palager/gcp/cloud/autocert"
 
 import (
 	"context"
 	"io/ioutil"
 	"log"
 
-	"upspin.io/cloud/https"
+	"github.com/palager/upspin/cloud/https"
 
 	"cloud.google.com/go/storage"
 	"google.golang.org/api/option"
