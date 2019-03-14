@@ -54,7 +54,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:d623c96c8b54740230c507078b5d8a7f867653c05597ecd5f20caef4da4feb4f"
+  digest = "1:f95588ab5dd5c224cdc29eb5ef1ed1b64c98916e97bb6d386027ee2c64fb9aab"
   name = "github.com/palager/upspin"
   packages = [
     "access",
@@ -123,7 +123,7 @@
     "version",
   ]
   pruneopts = "NUT"
-  revision = "0c39cf7d5303abd2fc8207aceb88581dea45b42d"
+  revision = "3fbadc216a8ef92ec6396f5d865859803c33e191"
 
 [[projects]]
   branch = "master"
