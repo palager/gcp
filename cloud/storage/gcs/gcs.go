@@ -124,7 +124,7 @@ func (gcs *gcsImpl) LinkBase() (base string, err error) {
   // TODO(rpg): don't want public bucket... so don't allow this, require routing
   // through the store server...
   // was:	return "https://storage.googleapis.com/" + gcs.bucketName + "/", nil
-    return upspin.ErrNotSupported
+    return "", upspin.ErrNotSupported
 }
 
 // Download implements storage.Storage.
