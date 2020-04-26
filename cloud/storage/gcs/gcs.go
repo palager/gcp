@@ -151,7 +151,7 @@ func (gcs *gcsImpl) Put(ref string, contents []byte) error {
 	for tries := 0; ; tries++ {
 		_, err := gcs.service.Objects.Insert(gcs.bucketName, &gcsBE.Object{Name: ref}).
 			Media(bytes.NewReader(contents)).
-			PredefinedAcl(gcs.defaultWriteACL).
+            //TODO(rpg): PredefinedAcl(gcs.defaultWriteACL).
 			Do()
 		if err == nil {
 			return nil
