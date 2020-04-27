@@ -3,7 +3,16 @@ FROM golang:alpine as builder
 WORKDIR /go/src/upspinserver
 RUN apk update && apk add --no-cache git ca-certificates && update-ca-certificates
 
-RUN go get -u github.com/palager/gcp/cmd/upspinserver-gcp
+ENV GO111MODULE=on
+
+COPY go.mod .
+COPY go.sum .
+
+RUN go mod download
+
+COPY . .
+
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /go/bin/upspinserver-gcp ./cmd/upspinserver-gcp/...
 
 FROM alpine:latest
 COPY --from=builder /go/bin/upspinserver-gcp /bin
